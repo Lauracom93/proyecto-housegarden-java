@@ -1,0 +1,4 @@
+com\mycompany\lauracombita_aa2_ev01\modelo\Producto.class
+com\mycompany\lauracombita_aa2_ev01\conexion\ConexionBD.class
+com\mycompany\lauracombita_aa2_ev01\dao\ProductoDAO.class
+com\mycompany\lauracombita_aa2_ev01\principal\Main.class
