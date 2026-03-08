@@ -1,6 +1,7 @@
 PROYECTO: Sistema de Gestión de Productos para Vivero
 
-Aprendiz: Laura Combita
+Aprendices: Laura Combita - Diana Amaya
+
 Evidencia: GA7-220501096-AA2-EV01
 
 Descripción del proyecto:
