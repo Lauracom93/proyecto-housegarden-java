@@ -1,0 +1,338 @@
+/* ================================================================
+   HouseGarden - Estilos globales
+   Tema: Natural / Botánico - Verde y tierra
+   Autor: Laura Combita
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+    --verde-oscuro:  #2d5016;
+    --verde-medio:   #4a7c20;
+    --verde-claro:   #7ab648;
+    --verde-suave:   #e8f5d9;
+    --tierra:        #8b5e3c;
+    --crema:         #faf7f0;
+    --blanco:        #ffffff;
+    --gris-texto:    #3a3a3a;
+    --gris-suave:    #f0ede6;
+    --sombra:        0 4px 20px rgba(45,80,22,0.12);
+    --radio:         12px;
+    --transicion:    0.25s ease;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--crema);
+    color: var(--gris-texto);
+    min-height: 100vh;
+}
+
+/* ── NAVBAR ── */
+.navbar {
+    background: var(--verde-oscuro);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--blanco);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar-brand span { color: var(--verde-claro); }
+
+.navbar-nav {
+    display: flex;
+    gap: 0.25rem;
+    list-style: none;
+}
+
+.navbar-nav a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transicion);
+}
+
+.navbar-nav a:hover,
+.navbar-nav a.active {
+    background: rgba(255,255,255,0.15);
+    color: var(--blanco);
+}
+
+/* ── CONTENIDO PRINCIPAL ── */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* ── ENCABEZADO DE PÁGINA ── */
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--verde-suave);
+}
+
+.page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--verde-oscuro);
+}
+
+.page-title small {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #777;
+    margin-top: 2px;
+}
+
+/* ── BOTONES ── */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.2rem;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: var(--transicion);
+}
+
+.btn-primary {
+    background: var(--verde-medio);
+    color: var(--blanco);
+}
+.btn-primary:hover { background: var(--verde-oscuro); }
+
+.btn-warning {
+    background: #e8a020;
+    color: var(--blanco);
+}
+.btn-warning:hover { background: #c98010; }
+
+.btn-danger {
+    background: #c0392b;
+    color: var(--blanco);
+}
+.btn-danger:hover { background: #96281b; }
+
+.btn-secondary {
+    background: var(--gris-suave);
+    color: var(--gris-texto);
+    border: 1px solid #ddd;
+}
+.btn-secondary:hover { background: #e4e0d8; }
+
+.btn-sm { padding: 0.35rem 0.75rem; font-size: 0.82rem; }
+
+/* ── TABLA ── */
+.table-wrapper {
+    background: var(--blanco);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: var(--verde-oscuro);
+    color: var(--blanco);
+}
+
+thead th {
+    padding: 0.85rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-align: left;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+tbody tr {
+    border-bottom: 1px solid #f0ede6;
+    transition: background var(--transicion);
+}
+
+tbody tr:hover { background: var(--verde-suave); }
+
+tbody td {
+    padding: 0.85rem 1rem;
+    font-size: 0.9rem;
+    vertical-align: middle;
+}
+
+tbody tr:last-child { border-bottom: none; }
+
+.acciones { display: flex; gap: 0.4rem; }
+
+/* ── FORMULARIO ── */
+.card {
+    background: var(--blanco);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+    padding: 2rem;
+    max-width: 600px;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--verde-oscuro);
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.65rem 0.9rem;
+    border: 1.5px solid #ddd;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem;
+    color: var(--gris-texto);
+    background: var(--crema);
+    transition: border-color var(--transicion), box-shadow var(--transicion);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--verde-claro);
+    box-shadow: 0 0 0 3px rgba(122,182,72,0.2);
+    background: var(--blanco);
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--gris-suave);
+}
+
+/* ── ALERTAS ── */
+.alert {
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    margin-bottom: 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.alert-success {
+    background: #d4edda;
+    color: #1a5c2a;
+    border: 1px solid #b8dfc4;
+}
+
+.alert-danger {
+    background: #fde8e6;
+    color: #8b1a14;
+    border: 1px solid #f5c6c3;
+}
+
+/* ── BADGE ESTADO ── */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.badge-pendiente  { background: #fff3cd; color: #856404; }
+.badge-completado { background: #d4edda; color: #1a5c2a; }
+.badge-cancelado  { background: #fde8e6; color: #8b1a14; }
+
+/* ── FOOTER ── */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: #999;
+    font-size: 0.82rem;
+    border-top: 1px solid #e8e4dc;
+    margin-top: 3rem;
+}
+
+/* ── DASHBOARD CARDS ── */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+    margin-top: 2rem;
+}
+
+.dash-card {
+    background: var(--blanco);
+    border-radius: var(--radio);
+    padding: 1.5rem;
+    box-shadow: var(--sombra);
+    text-decoration: none;
+    color: inherit;
+    border-left: 4px solid var(--verde-claro);
+    transition: transform var(--transicion), box-shadow var(--transicion);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.dash-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(45,80,22,0.18);
+}
+
+.dash-card .icon {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+}
+
+.dash-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--verde-oscuro);
+    font-size: 1.15rem;
+}
+
+.dash-card p {
+    font-size: 0.84rem;
+    color: #777;
+}
