@@ -65,7 +65,7 @@
 </div>
 
 <footer>
-    &copy; 2025 HouseGarden &mdash; SENA Análisis y Desarrollo de Software &mdash; Laura Cómbita
+    &copy; 2026 HouseGarden &mdash; SENA Análisis y Desarrollo de Software &mdash; Laura Cómbita
 </footer>
 
 </body>
