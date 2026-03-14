@@ -34,7 +34,7 @@
             Sistema de Gestión de Productos para Vivero
         </p>
         <p style="color:#999; font-size:0.85rem; margin-top:0.25rem;">
-            Aprendiz: Laura Cómbita — Ficha 3118327 — SENA
+            Aprendiz: Laura Cómbita y Diana Amaya — Ficha 3118327 — SENA
         </p>
     </div>
 
