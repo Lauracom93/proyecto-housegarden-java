@@ -34,11 +34,18 @@
             <c:if test="${not empty orden}">
                 <input type="hidden" name="idOrden" value="${orden.idOrden}">
             </c:if>
-            <div class="form-group">
-                <label for="idCliente">ID del Cliente</label>
-                <input type="number" id="idCliente" name="idCliente" class="form-control"
-                       placeholder="Ej: 1" value="${orden.idCliente}" required>
-            </div>
+           <div class="form-group">
+    <label for="idCliente">Cliente</label>
+    <select id="idCliente" name="idCliente" class="form-control" required>
+        <option value="">-- Seleccione un cliente --</option>
+        <c:forEach var="cli" items="${clientes}">
+            <option value="${cli.idCliente}"
+                <c:if test="${cli.idCliente == orden.idCliente}">selected</c:if>>
+                ${cli.idCliente} - ${cli.nombre} (${cli.telefono})
+            </option>
+        </c:forEach>
+    </select>
+</div>
             <div class="form-group">
                 <label for="fecha">Fecha de la Orden</label>
                 <input type="date" id="fecha" name="fecha" class="form-control"
