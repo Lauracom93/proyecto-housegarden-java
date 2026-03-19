@@ -1,5 +1,6 @@
 package com.mycompany.housegarden.servlet;
 
+import com.mycompany.housegarden.dao.ClienteDAO;
 import com.mycompany.housegarden.dao.OrdenDAO;
 import com.mycompany.housegarden.model.Orden;
 
@@ -19,6 +20,7 @@ import java.util.List;
 public class OrdenServlet extends HttpServlet {
 
     private final OrdenDAO dao = new OrdenDAO();
+    private final ClienteDAO clienteDAO = new ClienteDAO();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -30,6 +32,7 @@ public class OrdenServlet extends HttpServlet {
             if ("editar".equals(accion)) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 request.setAttribute("orden", dao.buscarPorId(id));
+                request.setAttribute("clientes", clienteDAO.listarTodos());
                 request.getRequestDispatcher("/views/ordenes/formulario.jsp").forward(request, response);
 
             } else if ("eliminar".equals(accion)) {
@@ -38,6 +41,7 @@ public class OrdenServlet extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/ordenes?msg=eliminado");
 
             } else if ("nuevo".equals(accion)) {
+                request.setAttribute("clientes", clienteDAO.listarTodos());
                 request.getRequestDispatcher("/views/ordenes/formulario.jsp").forward(request, response);
 
             } else {
