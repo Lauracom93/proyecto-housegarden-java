@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8">
+<title th:text="${producto.idProducto == null ? 'Nuevo Producto' : 'Editar Producto'} + ' - HouseGarden'"></title>
+<link rel="stylesheet" th:href="@{/css/estilos.css}"></head>
+<body>
+<nav class="navbar">
+    <a class="navbar-brand" th:href="@{/}">🌿 House<span>Garden</span></a>
+    <ul class="navbar-nav">
+        <li><a th:href="@{/}">Inicio</a></li>
+        <li><a th:href="@{/productos}" class="active">Productos</a></li>
+        <li><a th:href="@{/clientes}">Clientes</a></li>
+        <li><a th:href="@{/proveedores}">Proveedores</a></li>
+        <li><a th:href="@{/ordenes}">Órdenes</a></li>
+    </ul>
+</nav>
+<div class="container">
+    <div class="page-header">
+        <h1 class="page-title" th:text="${producto.idProducto == null ? '🌱 Nuevo Producto' : '✏️ Editar Producto'}"></h1>
+        <a th:href="@{/productos}" class="btn btn-secondary">← Volver</a>
+    </div>
+    <div class="card">
+        <!-- Formulario Thymeleaf: th:object y th:action -->
+        <form th:action="@{/productos/guardar}" th:object="${producto}" method="post">
+            <input type="hidden" th:field="*{idProducto}">
+            <div class="form-group">
+                <label>Nombre del Producto</label>
+                <input type="text" th:field="*{nombre}" class="form-control" placeholder="Ej: Rosa Roja">
+                <span class="error" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+            </div>
+            <div class="form-group">
+                <label>Descripción</label>
+                <textarea th:field="*{descripcion}" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Precio (COP)</label>
+                <input type="number" th:field="*{precio}" class="form-control" step="100" min="0">
+                <span class="error" th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></span>
+            </div>
+            <div class="form-group">
+                <label>Stock</label>
+                <input type="number" th:field="*{stock}" class="form-control" min="0">
+                <span class="error" th:if="${#fields.hasErrors('stock')}" th:errors="*{stock}"></span>
+            </div>
+            <div class="form-group">
+                <label>Categoría</label>
+                <select th:field="*{categoria}" class="form-control">
+                    <option value="">-- Seleccione categoría --</option>
+                    <option th:each="cat : ${categorias}"
+                            th:value="${cat.idCategoria}"
+                            th:text="${cat.nombre}"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Proveedor</label>
+                <select th:field="*{proveedor}" class="form-control">
+                    <option value="">-- Seleccione proveedor --</option>
+                    <option th:each="prov : ${proveedores}"
+                            th:value="${prov.idProveedor}"
+                            th:text="${prov.nombre}"></option>
+                </select>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">💾 Guardar</button>
+                <a th:href="@{/productos}" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+<footer>&copy; 2026 HouseGarden — SENA — Laura Cómbita &amp; Diana Amaya</footer>
+</body></html>

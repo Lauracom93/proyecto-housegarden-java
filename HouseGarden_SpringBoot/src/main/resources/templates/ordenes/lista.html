@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Órdenes - HouseGarden</title>
+<link rel="stylesheet" th:href="@{/css/estilos.css}"></head>
+<body>
+<nav class="navbar"><a class="navbar-brand" th:href="@{/}">🌿 House<span>Garden</span></a>
+<ul class="navbar-nav"><li><a th:href="@{/}">Inicio</a></li><li><a th:href="@{/productos}">Productos</a></li>
+<li><a th:href="@{/clientes}">Clientes</a></li><li><a th:href="@{/proveedores}">Proveedores</a></li>
+<li><a th:href="@{/ordenes}" class="active">Órdenes</a></li></ul></nav>
+<div class="container">
+    <div class="page-header">
+        <h1 class="page-title">📋 Órdenes<small>Registro de pedidos</small></h1>
+        <a th:href="@{/ordenes/nuevo}" class="btn btn-primary">+ Nueva Orden</a>
+    </div>
+    <div class="alert alert-success" th:if="${msg}" th:text="${msg}"></div>
+    <div class="table-wrapper"><table>
+        <thead><tr><th>#</th><th>Cliente</th><th>Fecha</th><th>Estado</th><th>Total</th><th>Acciones</th></tr></thead>
+        <tbody>
+            <tr th:if="${#lists.isEmpty(ordenes)}"><td colspan="6" style="text-align:center;color:#999;padding:2rem;">No hay órdenes.</td></tr>
+            <tr th:each="o : ${ordenes}">
+                <td th:text="${o.idOrden}"></td>
+                <td th:text="${o.cliente != null ? o.cliente.nombre : '-'}"></td>
+                <td th:text="${o.fecha}"></td>
+                <td><span class="badge" th:classappend="${'badge-' + o.estado.toLowerCase()}" th:text="${o.estado}"></span></td>
+                <td th:text="${'$' + o.total}"></td>
+                <td class="acciones">
+                    <a th:href="@{/ordenes/editar/{id}(id=${o.idOrden})}" class="btn btn-warning btn-sm">Editar</a>
+                    <a th:href="@{/ordenes/eliminar/{id}(id=${o.idOrden})}" class="btn btn-danger btn-sm" onclick="return confirm('¿Eliminar?')">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table></div>
+</div>
+<footer>&copy; 2026 HouseGarden — SENA — Laura Cómbita &amp; Diana Amaya</footer>
+</body></html>

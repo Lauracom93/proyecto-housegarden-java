@@ -1,0 +1,7 @@
+Enlace del repositorio GitHub del proyecto HouseGarden Spring Boot:
+
+https://github.com/Lauracom93/proyecto-housegarden-java
+
+Aprendices: Laura Angélica Cómbita - Diana Carina Amaya
+Evidencia: GA7-220501096-AA3-EV01
+Framework: Spring Boot 3.2 + Spring Data JPA + Thymeleaf

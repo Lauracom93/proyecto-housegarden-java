@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HouseGarden - Inicio</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+<nav class="navbar">
+    <a class="navbar-brand" th:href="@{/}">🌿 House<span>Garden</span></a>
+    <ul class="navbar-nav">
+        <li><a th:href="@{/}" class="active">Inicio</a></li>
+        <li><a th:href="@{/productos}">Productos</a></li>
+        <li><a th:href="@{/clientes}">Clientes</a></li>
+        <li><a th:href="@{/proveedores}">Proveedores</a></li>
+        <li><a th:href="@{/ordenes}">Órdenes</a></li>
+    </ul>
+</nav>
+<div class="container">
+    <div style="text-align:center; padding: 3rem 0 2rem;">
+        <h1 style="font-family:'Georgia',serif; font-size:2.5rem; color:#2d5016;">🌿 Sistema HouseGarden</h1>
+        <p style="color:#666; margin-top:0.5rem;">Sistema de Gestión de Productos para Vivero</p>
+        <p style="color:#999; font-size:0.85rem; margin-top:0.25rem;">
+            Laura Cómbita &amp; Diana Amaya — Ficha 3118327 — SENA 2026
+        </p>
+        <p style="color:#4a7c20; font-size:0.85rem; margin-top:0.25rem; font-weight:bold;">
+            Framework: Spring Boot 3.2 + Spring Data JPA + Thymeleaf
+        </p>
+    </div>
+    <div class="dashboard-grid">
+        <a class="dash-card" th:href="@{/productos}">
+            <div class="icon">🌱</div>
+            <h3>Productos</h3>
+            <p>Gestionar catálogo de plantas y herramientas</p>
+        </a>
+        <a class="dash-card" th:href="@{/clientes}">
+            <div class="icon">👤</div>
+            <h3>Clientes</h3>
+            <p>Administrar clientes registrados</p>
+        </a>
+        <a class="dash-card" th:href="@{/proveedores}">
+            <div class="icon">🚚</div>
+            <h3>Proveedores</h3>
+            <p>Gestionar proveedores del vivero</p>
+        </a>
+        <a class="dash-card" th:href="@{/ordenes}">
+            <div class="icon">📋</div>
+            <h3>Órdenes</h3>
+            <p>Registrar y consultar pedidos</p>
+        </a>
+    </div>
+</div>
+<footer>&copy; 2026 HouseGarden — SENA — Laura Cómbita &amp; Diana Amaya</footer>
+</body>
+</html>

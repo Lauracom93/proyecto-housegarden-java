@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Proveedor - HouseGarden</title>
+<link rel="stylesheet" th:href="@{/css/estilos.css}"></head>
+<body>
+<nav class="navbar"><a class="navbar-brand" th:href="@{/}">🌿 House<span>Garden</span></a>
+<ul class="navbar-nav"><li><a th:href="@{/}">Inicio</a></li><li><a th:href="@{/productos}">Productos</a></li>
+<li><a th:href="@{/clientes}">Clientes</a></li><li><a th:href="@{/proveedores}" class="active">Proveedores</a></li>
+<li><a th:href="@{/ordenes}">Órdenes</a></li></ul></nav>
+<div class="container">
+    <div class="page-header">
+        <h1 class="page-title" th:text="${proveedor.idProveedor == null ? '🚚 Nuevo Proveedor' : '✏️ Editar Proveedor'}"></h1>
+        <a th:href="@{/proveedores}" class="btn btn-secondary">← Volver</a>
+    </div>
+    <div class="card">
+        <form th:action="@{/proveedores/guardar}" th:object="${proveedor}" method="post">
+            <input type="hidden" th:field="*{idProveedor}">
+            <div class="form-group"><label>Nombre empresa</label>
+                <input type="text" th:field="*{nombre}" class="form-control">
+                <span class="error" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span></div>
+            <div class="form-group"><label>Contacto</label>
+                <input type="text" th:field="*{contacto}" class="form-control"></div>
+            <div class="form-group"><label>Teléfono</label>
+                <input type="text" th:field="*{telefono}" class="form-control"></div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">💾 Guardar</button>
+                <a th:href="@{/proveedores}" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+<footer>&copy; 2026 HouseGarden — SENA — Laura Cómbita &amp; Diana Amaya</footer>
+</body></html>

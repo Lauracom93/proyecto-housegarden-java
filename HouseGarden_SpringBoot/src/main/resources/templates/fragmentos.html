@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<body>
+<nav th:fragment="navbar(activo)" class="navbar">
+    <a class="navbar-brand" th:href="@{/}">🌿 House<span>Garden</span></a>
+    <ul class="navbar-nav">
+        <li><a th:href="@{/}"          th:classappend="${activo=='inicio'}    ? 'active' : ''">Inicio</a></li>
+        <li><a th:href="@{/productos}" th:classappend="${activo=='productos'} ? 'active' : ''">Productos</a></li>
+        <li><a th:href="@{/clientes}"  th:classappend="${activo=='clientes'}  ? 'active' : ''">Clientes</a></li>
+        <li><a th:href="@{/proveedores}" th:classappend="${activo=='proveedores'}?'active':''">Proveedores</a></li>
+        <li><a th:href="@{/ordenes}"   th:classappend="${activo=='ordenes'}   ? 'active' : ''">Órdenes</a></li>
+    </ul>
+</nav>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Clientes - HouseGarden</title>
+<link rel="stylesheet" th:href="@{/css/estilos.css}"></head>
+<body>
+<nav class="navbar"><a class="navbar-brand" th:href="@{/}">🌿 House<span>Garden</span></a>
+<ul class="navbar-nav"><li><a th:href="@{/}">Inicio</a></li><li><a th:href="@{/productos}">Productos</a></li>
+<li><a th:href="@{/clientes}" class="active">Clientes</a></li><li><a th:href="@{/proveedores}">Proveedores</a></li>
+<li><a th:href="@{/ordenes}">Órdenes</a></li></ul></nav>
+<div class="container">
+    <div class="page-header">
+        <h1 class="page-title">👤 Clientes<small>Clientes registrados</small></h1>
+        <a th:href="@{/clientes/nuevo}" class="btn btn-primary">+ Nuevo Cliente</a>
+    </div>
+    <div class="alert alert-success" th:if="${msg}" th:text="${msg}"></div>
+    <div class="table-wrapper"><table>
+        <thead><tr><th>#</th><th>Nombre</th><th>Correo</th><th>Teléfono</th><th>Fecha Registro</th><th>Acciones</th></tr></thead>
+        <tbody>
+            <tr th:if="${#lists.isEmpty(clientes)}"><td colspan="6" style="text-align:center;color:#999;padding:2rem;">No hay clientes.</td></tr>
+            <tr th:each="c : ${clientes}">
+                <td th:text="${c.idCliente}"></td><td><strong th:text="${c.nombre}"></strong></td>
+                <td th:text="${c.correo}"></td><td th:text="${c.telefono}"></td>
+                <td th:text="${c.fechaRegistro}"></td>
+                <td class="acciones">
+                    <a th:href="@{/clientes/editar/{id}(id=${c.idCliente})}" class="btn btn-warning btn-sm">Editar</a>
+                    <a th:href="@{/clientes/eliminar/{id}(id=${c.idCliente})}" class="btn btn-danger btn-sm" onclick="return confirm('¿Eliminar?')">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table></div>
+</div>
+<footer>&copy; 2026 HouseGarden — SENA — Laura Cómbita &amp; Diana Amaya</footer>
+</body></html>
