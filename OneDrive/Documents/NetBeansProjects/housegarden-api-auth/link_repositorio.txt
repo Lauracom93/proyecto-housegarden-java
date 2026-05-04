@@ -1,0 +1,8 @@
+Enlace del repositorio GitHub del proyecto HouseGarden API:
+
+https://github.com/Lauracom93/proyecto-housegarden-java
+
+Aprendices: Laura Angélica Cómbita - Diana Carina Amaya - Andrés Fontalvo
+Evidencia: GA7-220501096-AA5-EV01
+Tecnología: Spring Boot 3.2 + Spring Data JPA + BCrypt
+Ficha: 3118327 | SENA 2026
